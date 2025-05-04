@@ -1,0 +1,12 @@
+﻿# --- Web / API ---
+fastapi>=0.115.12
+fastapi-mcp>=0.3.3
+httpx>=0.24.0
+
+# --- MCP ---
+mcp[cli,ws,http]==1.7.1
+fastmcp==2.2.7
+
+# --- utilities ---
+python-dotenv>=1.0.0
+pathlib>=1.0.1
