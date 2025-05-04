@@ -189,7 +189,7 @@ async def search_party(
 if __name__ == "__main__":
     try:
         logger.info("Starting OFAC MCP server (sse transport)…")
-        mcp.run(transport="sse", path="/mcp/sse")
+        mcp.run(transport="sse")
     except Exception as exc:
         logger.exception("MCP server startup failed: %s", str(exc))
         sys.exit(1)
