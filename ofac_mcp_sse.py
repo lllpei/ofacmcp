@@ -42,6 +42,8 @@ load_dotenv()
 DEFAULT_BASE = "https://hello-render-rbg8.onrender.com/ofacParty"
 API_ENDPOINT = os.getenv("API_ENDPOINT", DEFAULT_BASE)
 SEARCH_ENDPOINT = os.getenv("SEARCH_ENDPOINT", f"{DEFAULT_BASE}/search")
+SSE_ENDPOINT = os.getenv("SSE_ENDPOINT", f"{DEFAULT_BASE}/sse")  # SSEエンドポイントを追加
+
 
 logger.info("API_ENDPOINT = %s", API_ENDPOINT)
 logger.info("SEARCH_ENDPOINT = %s", SEARCH_ENDPOINT)
@@ -50,7 +52,7 @@ logger.info("SEARCH_ENDPOINT = %s", SEARCH_ENDPOINT)
 # MCP サーバ初期化
 # ──────────────────────────────────────────────
 MCP_NAME = "ofac_party_service"
-mcp = FastMCP(MCP_NAME)
+mcp = FastMCP(MCP_NAME, sse_endpoint=SSE_ENDPOINT)
 
 # ──────────────────────────────────────────────
 # 共通 util
