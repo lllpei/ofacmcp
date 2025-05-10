@@ -5,7 +5,7 @@ import httpx
 import logging
 from pathlib import Path
 from dotenv import load_dotenv
-from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP, SSETransport
 
 """
 OFAC MCP Tool (extended)
@@ -191,7 +191,8 @@ async def search_party(
 if __name__ == "__main__":
     try:
         logger.info("Starting OFAC MCP server (sse transport)…")
-        mcp.run(transport="sse")
+        transport = SSETransport(path="/sse")
+        mcp.run(transport=transport)
     except Exception as exc:
         logger.exception("MCP server startup failed: %s", str(exc))
         sys.exit(1)
